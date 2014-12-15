@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Comsolit\\": "src/ClockBundle"
+            "Comsolit\\ClockBundle\\": ""
         }
     },
     "repositories": [],
