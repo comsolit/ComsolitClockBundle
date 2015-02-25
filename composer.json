@@ -1,6 +1,6 @@
 {
     "name": "comsolit/clock-bundle",
-    "description": "",
+    "description": "Clock Service to represent a request-constant, system-wide instance in time.",
     "type": "symfony-bundle",
     "authors": [
         {
