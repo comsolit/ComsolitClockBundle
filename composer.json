@@ -16,7 +16,8 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "comsolit/date-time-immutable": "1.0.*@dev"
+        "comsolit/date-time-immutable": "1.0.*@dev",
+        "symfony/symfony": "~2.5"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.3"

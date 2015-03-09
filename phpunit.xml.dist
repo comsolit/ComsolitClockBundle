@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <phpunit bootstrap="./Tests/bootstrap.php">
     <php>
-        <!-- <server name="SYMFONY" value="/path/to/symfony" /> -->
+        <server name="KERNEL_DIR" value="./Tests/Fixtures/App/app" />
     </php>
     <testsuites>
         <testsuite name="ClockBundle Test Suite">
