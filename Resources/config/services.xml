@@ -4,13 +4,14 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
     <services>
-        <service id="comsolit_clock.example" class="Comsolit\ClockBundle\Example">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="comsolit_request_clock_factory" class="Comsolit\ClockBundle\ClockFactory" public="false">
+            <argument type="service" id="request_stack"/>
+        </service>
+
+        <service id="comsolit_request_clock" class="Comsolit\ClockBundle\Clock">
+            <factory service="comsolit_request_clock_factory" method="createClock" />
         </service>
     </services>
-    -->
+
 </container>
