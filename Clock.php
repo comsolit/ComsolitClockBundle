@@ -88,6 +88,15 @@ class Clock
         return (new \DateTime($time, $this->now->getTimezone()))->setTimezone($this->now->getTimezone());
     }
 
+    /**
+     * Returns an instance of DateTimeImmutable for the given implementation of DateTimeInterface.
+     *
+     * This method should rather exist in the DateTimeImmutable class but Derick Rethans doesn't
+     * think so.
+     *
+     * @param \DateTimeInterface $datetime
+     * @return \DateTimeImmutable
+     */
     public static function createDateTimeImmutable(/*\DateTimeInterface*/ $datetime)
     {
         if ($datetime instanceof \DateTimeImmutable)
