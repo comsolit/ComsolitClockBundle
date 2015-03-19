@@ -13,13 +13,22 @@ class ClockFactory
         $this->requestStack = $requestStack;
     }
 
+    private function getRequestTime()
+    {
+        $masterRequest = $this->requestStack->getMasterRequest();
+        if (is_null($masterRequest)) {
+            return new \DateTimeImmutable();
+        }
+
+        if (!$masterRequest->server->has('REQUEST_TIME')) {
+            return new \DateTimeImmutable();
+        }
+
+        return (new \DateTimeImmutable())->setTimestamp((int)$masterRequest->server->get('REQUEST_TIME'));
+    }
+
     public function createClock()
     {
-        $server = $this->requestStack->getMasterRequest()->server;
-        $dt = $server->has('REQUEST_TIME')
-            ? (new \DateTimeImmutable())->setTimestamp((int)$server->get('REQUEST_TIME'))
-            : new \DateTimeImmutable();
-
-        return new Clock($dt);
+        return new Clock($this->getRequestTime());
     }
 }

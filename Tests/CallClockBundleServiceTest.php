@@ -4,6 +4,8 @@ namespace Comsolit\ClockBundle\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Comsolit\ClockBundle\ClockFactory;
 
 class CallClockBundleServiceTest extends WebTestCase
 {
@@ -51,5 +53,12 @@ class CallClockBundleServiceTest extends WebTestCase
 
         $clock = $container->get('comsolit_request_clock');
         $this->assertGreaterThanOrEqual($dt->format('U'), $clock->getSeconds());
+    }
+
+    public function testServiceFactoryAlsoWorksWithoutRequest()
+    {
+        $factory = new ClockFactory(new RequestStack());
+        $clock = $factory->createClock();
+        $this->assertInstanceOf('Comsolit\ClockBundle\Clock', $clock);
     }
 }
