@@ -18,11 +18,7 @@ class CallClockBundleServiceTest extends WebTestCase
         $requestStack->push($request);
 
         $clock = $container->get('comsolit_request_clock');
-        $futureSeconds = $clock->getSecondsSince(
-            \DateTimeImmutable::createFromMutable(
-                new \DateTime('2000-01-01')
-             )
-        );
+        $futureSeconds = $clock->getSecondsSince(new \DateTimeImmutable('2000-01-01'));
         $this->assertGreaterThan(0, $futureSeconds);
         $this->assertInstanceOf('Comsolit\ClockBundle\Clock', $clock);
     }
