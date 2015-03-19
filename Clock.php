@@ -104,6 +104,12 @@ class Clock
             return $datetime;
         }
 
-        return \DateTimeImmutable::createFromMutable($datetime);
+        if (is_callable(['DateTimeImmutable', 'createFromMutable'])) {
+            return \DateTimeImmutable::createFromMutable($datetime);
+        }
+        return new \DateTimeImmutable(
+            $datetime->format(\DateTime::ISO8601),
+            $datetime->getTimezone()
+        );
     }
 }
