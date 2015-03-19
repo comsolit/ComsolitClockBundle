@@ -107,8 +107,9 @@ class Clock
         if (is_callable(['DateTimeImmutable', 'createFromMutable'])) {
             return \DateTimeImmutable::createFromMutable($datetime);
         }
+
         return new \DateTimeImmutable(
-            $datetime->format(\DateTime::ISO8601),
+            $datetime->format('Y-m-d H:i:s'),
             $datetime->getTimezone()
         );
     }
