@@ -15,8 +15,7 @@
         "MIT"
     ],
     "require": {
-        "php": ">=5.4.0",
-        "comsolit/date-time-immutable": "~2.0@alpha"
+        "php": ">=5.5.0"
     },
     "require-dev": {
       "phpunit/phpunit": "~4.3",
