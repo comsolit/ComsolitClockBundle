@@ -9,7 +9,7 @@
             <argument type="service" id="request_stack"/>
         </service>
 
-        <service id="comsolit_request_clock" class="Comsolit\ClockBundle\Clock">
+        <service id="comsolit_request_clock" class="Comsolit\ClockBundle\Clock" public="true">
             <factory service="comsolit_request_clock_factory" method="createClock" />
         </service>
     </services>
